@@ -1,0 +1,14 @@
+{
+    "name": "fosten/farm_mountain_csv_importer",
+    "description": "CSV Importer for farmOS",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Brian Davis",
+            "email": "info@lillymountain.com"
+        }
+    ],
+    "require": {
+      "farmos/farmos": "^3.0"
+    }
+  }
