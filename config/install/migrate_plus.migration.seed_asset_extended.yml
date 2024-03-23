@@ -10,6 +10,8 @@ source:
 destination:
   plugin: 'entity:asset'
 process:
+  # Asset name.
+  name: name
   packed_for_year:
     plugin: get
     source: packed_for_year
