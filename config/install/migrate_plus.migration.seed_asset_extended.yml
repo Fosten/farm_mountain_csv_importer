@@ -30,11 +30,6 @@ process:
   type:
     plugin: default_value
     default_value: seed
-  # Auto-generate the asset name.
-  name:
-    plugin: concat
-    source:
-      - packed_for_year
 migration_dependencies: {  }
 third_party_settings:
   farm_import_csv:
