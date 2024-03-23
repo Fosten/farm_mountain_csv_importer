@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies: {  }
+id: seed_asset_extended
+label: 'Extended Seed Asset importer'
+migration_group: farm_import_csv
+migration_tags: []
+source:
+  plugin: csv_file
+destination:
+  plugin: 'entity:asset'
+process:
+  packed_for_year:
+    plugin: get
+    source: packed_for_year
+  purchase_date:
+    plugin: callback
+    callable: strtotime
+    source: purchase_date
+  cost:
+    plugin: get
+    source: cost
+  # Hard-code the bundle.
+  type:
+    plugin: default_value
+    default_value: seed
+  # Auto-generate the asset name.
+  name:
+    plugin: concat
+    source:
+      - packed_for_year
+migration_dependencies: {  }
+third_party_settings:
+  farm_import_csv:
+    access:
+      permissions:
+        - create seed assset
+    columns:
+      - name: Packed for Year
+        description: Year the seeds were packed for.
+      - name: Purchase Date
+        description: Year the seeds were packed for.
+      - name: Cost
+        description: Year the seeds were packed for.

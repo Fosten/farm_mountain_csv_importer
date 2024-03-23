@@ -1,0 +1,7 @@
+name: Mountain CSV Import
+description: An custom farmOS CSV import module.
+type: module
+package: farmOS Contrib
+core_version_requirement: ^10
+dependencies:
+  - farm:farm_import_csv
