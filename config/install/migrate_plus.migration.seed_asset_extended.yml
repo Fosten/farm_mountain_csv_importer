@@ -12,6 +12,10 @@ destination:
 process:
   # Asset name.
   name: name
+  plant_type:
+    plugin: term_lookup
+    bundle: plant_type
+    source: plant_type
   packed_for_year:
     plugin: get
     source: packed_for_year
@@ -38,9 +42,11 @@ third_party_settings:
       permissions:
         - create seed assset
     columns:
-      - name: Packed for Year
+      - name: name
+        description: Name of the seed asset.
+      - name: packed_for_year
         description: Year the seeds were packed for.
-      - name: Purchase Date
+      - name: purchase_date
         description: Year the seeds were packed for.
-      - name: Cost
+      - name: cost
         description: Year the seeds were packed for.
