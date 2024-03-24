@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: seed_asset_extended
-label: 'Extended Seed Asset importer'
+label: 'Asset: Seed (Extended)'
 migration_group: farm_import_csv
 migration_tags: []
 source:
@@ -10,26 +10,27 @@ source:
 destination:
   plugin: 'entity:asset'
 process:
-  # Asset name.
-  name: name
-  plant_type:
-    plugin: term_lookup
-    bundle: plant_type
-    source: plant_type
-  packed_for_year:
-    plugin: get
-    source: packed_for_year
-  purchase_date:
-    plugin: callback
-    callable: strtotime
-    source: purchase_date
-  cost:
-    plugin: get
-    source: cost
   # Hard-code the bundle.
   type:
     plugin: default_value
     default_value: seed
+  # Asset name.
+  name: name
+  # Plant type
+  plant_type:
+    plugin: term_lookup
+    bundle: plant_type
+    source: plant type
+  # Custom fields
+  # Packed for Year on the seed packet
+  packed_for_year: packed for year
+  # Parse the asset purchase_date with strtotime() from purchase date column.
+  purchase_date:
+    plugin: callback
+    callable: strtotime
+    source: purchase date
+  # Cost of the seed packet
+  cost: cost
 migration_dependencies: {  }
 third_party_settings:
   farm_import_csv:
@@ -39,11 +40,11 @@ third_party_settings:
     columns:
       - name: name
         description: Name of the seed asset.
-      - name: plant_type
+      - name: plant type
         description: Plant Type of the seed asset.
-      - name: packed_for_year
+      - name: packed for year
         description: Year the seeds were packed for.
-      - name: purchase_date
-        description: Year the seeds were packed for.
+      - name: purchase date
+        description: Date the seeds were purchased.
       - name: cost
-        description: Year the seeds were packed for.
+        description: Cost of the seed packet.
